@@ -15,7 +15,11 @@ module.exports = merge({
         loaders: [
             { test: /\.ts(x?)$/, include: /ClientApp/, loader: 'babel-loader' },
             { test: /\.ts(x?)$/, include: /ClientApp/, loader: 'ts-loader?silent=true' },
-            { test: /\.css/, loader: extractCSS.extract(['css']) }
+            { test: /\.css/, loader: extractCSS.extract(['css']) },
+            {
+                test: /masonry|imagesloaded|fizzy\-ui\-utils|desandro\-|outlayer|get\-size|doc\-ready|eventie|eventemitter/,
+                loader: 'imports?define=>false&this=>window'
+            }
         ]
     },
     entry: {

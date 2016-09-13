@@ -1,0 +1,1 @@
+/// <reference path="./react-masonry-component.d.ts" />
