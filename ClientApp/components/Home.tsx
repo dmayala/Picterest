@@ -1,12 +1,6 @@
 import * as React from 'react';
 import  * as MasonryClass  from 'react-masonry-component';
-declare var process:any;
-
 const Masonry = MasonryClass.default;
-
-var masonryOptions = {
-    transitionDuration: 0
-};
 
 interface S {
   mounted: boolean;
@@ -24,11 +18,11 @@ export default class Home extends React.Component<void, S> {
 
   render() {   
       if (!this.state.mounted) {
-        return (<div>loading...</div>);
+        return (<div className="container">loading...</div>);
       } else {
         var childElements = [{ src: 'http://placehold.it/350x150' },
-          { src: 'http://placehold.it/240x150' },
-          { src: 'http://placehold.it/300x150' }].map(function(element){
+          { src: 'http://placehold.it/350x100' },
+          { src: 'http://placehold.it/350x120' }].map(function(element){
             return (
               <li className="image-element-class">
                 <img src={element.src} />
@@ -37,15 +31,17 @@ export default class Home extends React.Component<void, S> {
         });
 
         return (
-          <Masonry
-            className={'my-gallery-class'}
-            elementType={'ul'}
-            options={masonryOptions}
-            disableImagesLoaded={false}
-            updateOnEachImageLoad={false}
-          >
-            {childElements}
-          </Masonry>
+          <div className="container">
+            <Masonry
+              className={'container'}
+              elementType={'div'}
+              options={{}}
+              disableImagesLoaded={false}
+              updateOnEachImageLoad={false}
+            >
+              {childElements}
+            </Masonry>
+          </div>
         );
       }
   }
